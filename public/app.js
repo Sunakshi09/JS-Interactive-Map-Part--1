@@ -15,10 +15,8 @@ const myMap = {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: "18",
-      id: "openstreetmap",
       tileSize: 512,
       zoomOffset: -1,
-      accessToken: apiKey,
     }).addTo(this.map);
 
     // create and add geolocation marker
@@ -53,7 +51,7 @@ async function getFoursquare(business) {
     method: "GET",
     headers: {
       Accept: "application/json",
-      Authorization: "API_KEY",
+      Authorization: "fsq3pJ+4p6oTJPfCJNMO0hzrvDnZpRdiQjStk58ubIzaIwU=",
     },
   };
   let limit = 5;
@@ -98,6 +96,9 @@ document.getElementById("submit").addEventListener("click", async (event) => {
   myMap.addMarkers();
 });
 
-const redPin = l.icon({
+const redPin = L.icon({
   iconurl: "./assets/red-pin.png",
+  iconSize: [38, 38],
+  iconAnchor: [19, 38],
+  popupAnchor: [0, -38],
 });
