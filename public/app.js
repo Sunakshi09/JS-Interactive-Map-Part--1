@@ -15,8 +15,10 @@ const myMap = {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: "18",
+      id: "openstreetmap",
       tileSize: 512,
       zoomOffset: -1,
+      accessToken: apiKey,
     }).addTo(this.map);
 
     // create and add geolocation marker
@@ -94,4 +96,8 @@ document.getElementById("submit").addEventListener("click", async (event) => {
   let data = await getFoursquare(business);
   myMap.businesses = processBusinesses(data);
   myMap.addMarkers();
+});
+
+const redPin = l.icon({
+  iconurl: "./assets/red-pin.png",
 });
