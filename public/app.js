@@ -1,4 +1,3 @@
-
 const myMap = {
   coordinates: [],
   businesses: [],
@@ -15,8 +14,11 @@ const myMap = {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      minZoom: "8",
+      maxZoom: "18",
+      tileSize: 512,
+      zoomOffset: -1,
     }).addTo(this.map);
+
     // create and add geolocation marker
     const marker = L.marker(this.coordinates);
     marker
@@ -35,22 +37,6 @@ const myMap = {
   },
 };
 
-let diablo = l
-  .polygon(
-    [
-      [37.941, -121.959],
-      [37.877, -122.016],
-      [37.804, -121.826],
-      [37.897, -121.825],
-    ],
-    {
-      color: "green",
-      fill: "#36ba40",
-      fillOpacity: "0.5",
-      stroke: "black",
-    }
-  )
-  .addTo(myMap);
 // get coordinates via geolocation api
 async function getCoords() {
   const pos = await new Promise((resolve, reject) => {
