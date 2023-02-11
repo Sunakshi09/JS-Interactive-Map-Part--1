@@ -1,3 +1,4 @@
+
 const myMap = {
   coordinates: [],
   businesses: [],
@@ -35,20 +36,21 @@ const myMap = {
 };
 
 let diablo = l
-  .polygon([
-    [-122.4, 37.7],
-    [-122.4, 37.8],
-    [-122.5, 37.8],
-    [-122.5, 37.7],
+  .polygon(
+    [
+      [37.941, -121.959],
+      [37.877, -122.016],
+      [37.804, -121.826],
+      [37.897, -121.825],
+    ],
     {
-      type: "Polygon",
       color: "green",
-      fill: true,
+      fill: "#36ba40",
       fillOpacity: "0.5",
       stroke: "black",
-    },
-  ])
-  .addTo(thismap);
+    }
+  )
+  .addTo(myMap);
 // get coordinates via geolocation api
 async function getCoords() {
   const pos = await new Promise((resolve, reject) => {
